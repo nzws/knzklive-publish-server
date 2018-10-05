@@ -1,0 +1,16 @@
+{
+  "name": "knzklive-publish-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": "https://github.com/yuzulabo/KnzkLive-Publish-Server.git",
+  "author": "nzws <github@nzws.me>",
+  "license": "MPL-2.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.18.0",
+    "node-media-server": "^1.4.3"
+  }
+}
