@@ -66,7 +66,7 @@ nmcs.on('postPlay', (id, StreamPath, args) => {
 
 nmcs.on('donePlay', (id, StreamPath, args) => {
     console.log('[NodeEvent on donePlay]', `id=${id} StreamPath=${StreamPath} args=${JSON.stringify(args)}`);
-    axios.get(`${conf.endpoint}publish.php?live=${StreamPath}&authorization=${conf.APIKey}&mode=done_play`).then(response => {
+    axios.get(`${conf.endpoint}play.php?live=${StreamPath}&authorization=${conf.APIKey}&mode=done_play`).then(response => {
     }).catch(error => {
         console.log('[donePlay]', error);
     })
