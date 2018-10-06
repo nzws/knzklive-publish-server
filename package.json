@@ -11,6 +11,6 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
-    "node-media-server": "^1.4.3"
+    "node-media-server": "git+https://github.com/yuzulabo/Node-Media-Server"
   }
 }

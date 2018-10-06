@@ -282,9 +282,9 @@ negotiator@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
 
-node-media-server@^1.4.3:
+"node-media-server@git+https://github.com/yuzulabo/Node-Media-Server":
   version "1.4.3"
-  resolved "https://registry.yarnpkg.com/node-media-server/-/node-media-server-1.4.3.tgz#f1db1454d0875af3d23cd137a2dedd410d9d5583"
+  resolved "git+https://github.com/yuzulabo/Node-Media-Server#a77011884f917b590a78e6e9ef7fc4e68c9ca3b3"
   dependencies:
     basic-auth-connect "^1.0.0"
     chalk "^2.4.1"

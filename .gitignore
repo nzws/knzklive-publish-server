@@ -29,3 +29,5 @@ node_modules
 
 .vscode
 .idea
+
+config.js
