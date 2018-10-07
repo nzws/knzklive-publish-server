@@ -41,7 +41,7 @@ const config = {
     */
 };
 
-const nmcs = new NodeMediaCluster(config);
+const nmcs = new NodeMediaServer(config);
 nmcs.run();
 
 nmcs.on('prePublish', (id, StreamPath, args) => {
