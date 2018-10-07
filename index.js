@@ -4,7 +4,7 @@ const { NodeMediaCluster, NodeMediaServer } = require('node-media-server'),
 
 const numCPUs = require('os').cpus().length;
 
-const config = {
+let config = {
     rtmp: {
         port: 1935,
         chunk_size: 100000,
@@ -13,7 +13,7 @@ const config = {
         ping_timeout: 30
     },
     http: {
-        port: 8000,
+        port: conf.http_port,
         allow_origin: '*'
     },
     cluster: {
@@ -40,6 +40,14 @@ const config = {
     }
     */
 };
+
+if (conf.https_port) {
+    config["https"] = {
+      port: conf.https_port,
+      cert: conf.https_cert,
+      key: conf.https_key,
+    };
+}
 
 const nmcs = new NodeMediaServer(config);
 nmcs.run();
