@@ -58,10 +58,6 @@ nmcs.on('prePublish', (id, StreamPath, args) => {
 
 nmcs.on('donePublish', (id, StreamPath, args) => {
     console.log('[NodeEvent on donePublish]', `id=${id} StreamPath=${StreamPath} args=${JSON.stringify(args)}`);
-    axios.get(`${conf.endpoint}publish.php?token=${args.token}&live=${StreamPath}&authorization=${conf.APIKey}&mode=done_publish`).then(response => {
-    }).catch(error => {
-        console.log('[donePublish]', error);
-    })
 });
 
 nmcs.on('postPlay', (id, StreamPath, args) => {
