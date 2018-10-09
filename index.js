@@ -23,22 +23,6 @@ let config = {
         api_endpoint: conf.endpoint,
         api_key: conf.APIKey
     }
-    /*
-    trans: {
-        ffmpeg: '/usr/local/bin/ffmpeg',
-        tasks: [
-            {
-                app: 'live',
-                ac: 'aac',
-                hls: true,
-                hlsFlags: '[hls_time=2:hls_list_size=3:hls_flags=delete_segments]',
-                dash: true,
-                dashFlags: '[f=dash:window_size=3:extra_window_size=5]'
-
-            }
-        ]
-    }
-    */
 };
 
 if (conf.https_port) {
@@ -47,6 +31,23 @@ if (conf.https_port) {
       cert: conf.https_cert,
       key: conf.https_key,
     };
+}
+
+if (conf.ffmpeg_path) {
+  config["trans"] = {
+    ffmpeg: conf.ffmpeg_path,
+    tasks: [
+      {
+        app: 'live',
+        ac: 'aac',
+        hls: true,
+        hlsFlags: '[hls_time=2:hls_list_size=3:hls_flags=delete_segments]',
+        dash: true,
+        dashFlags: '[f=dash:window_size=3:extra_window_size=5]'
+
+      }
+    ]
+  };
 }
 
 const nmcs = new NodeMediaServer(config);
