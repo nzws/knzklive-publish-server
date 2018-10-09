@@ -2,8 +2,6 @@ const { NodeMediaCluster, NodeMediaServer } = require('node-media-server'),
     axios = require('axios'),
     conf = require('./config');
 
-const numCPUs = require('os').cpus().length;
-
 let config = {
     rtmp: {
         port: 1935,
@@ -15,9 +13,6 @@ let config = {
     http: {
         port: conf.http_port,
         allow_origin: '*'
-    },
-    cluster: {
-        num: numCPUs
     },
     knzklive: {
         api_endpoint: conf.endpoint,

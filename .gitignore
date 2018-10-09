@@ -31,3 +31,6 @@ node_modules
 .idea
 
 config.js
+
+/media/*
+!/media/.gitkeep
