@@ -11,11 +11,13 @@
 
 ```
 sudo su -
+yum install -y gcc-c++ make
 curl -sL https://rpm.nodesource.com/setup_8.x | sudo bash -
+yum install -y nodejs
 yum -y install epel-release
 rpm -ihv http://awel.domblogger.net/7/media/x86_64/awel-media-release-7-6.noarch.rpm
 yum update -y
-yum install -y gcc-c++ make git nodejs ffmpeg ffmpeg-devel
+yum install -y git ffmpeg ffmpeg-devel
 curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
 yum install -y yarn
 
