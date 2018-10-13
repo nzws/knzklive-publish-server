@@ -11,14 +11,13 @@
 
 ```
 sudo su -
-yum update -y
 curl -sL https://rpm.nodesource.com/setup_8.x | sudo bash -
-yum install -y gcc-c++ make git nodejs
+yum -y install epel-release
+rpm -ihv http://awel.domblogger.net/7/media/x86_64/awel-media-release-7-6.noarch.rpm
+yum update -y
+yum install -y gcc-c++ make git nodejs ffmpeg ffmpeg-devel
 curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
 yum install -y yarn
-yum -y install epel-release
-yum -y install epel-release && rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
-yum -y install ffmpeg ffmpeg-devel
 
 adduser knzklive
 useradd knzklive
