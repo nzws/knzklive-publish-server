@@ -12,7 +12,8 @@ let config = {
     },
     http: {
         port: conf.http_port,
-        allow_origin: '*'
+        allow_origin: '*',
+        mediaroot: './media'
     },
     knzklive: {
         api_endpoint: conf.endpoint,
@@ -36,10 +37,7 @@ if (conf.ffmpeg_path) {
         app: 'live',
         ac: 'aac',
         hls: true,
-        hlsFlags: '[hls_time=2:hls_list_size=3:hls_flags=delete_segments]',
-        dash: true,
-        dashFlags: '[f=dash:window_size=3:extra_window_size=5]'
-
+        hlsFlags: '[hls_time=1:hls_list_size=2:hls_flags=delete_segments]',
       }
     ]
   };
@@ -58,16 +56,8 @@ nmcs.on('donePublish', (id, StreamPath, args) => {
 
 nmcs.on('postPlay', (id, StreamPath, args) => {
     console.log('[NodeEvent on postPlay]', `id=${id} StreamPath=${StreamPath} args=${JSON.stringify(args)}`);
-    axios.get(`${conf.endpoint}play.php?live=${StreamPath}&authorization=${conf.APIKey}&mode=post_play`).then(response => {
-    }).catch(error => {
-        console.log('[postPlay]', error);
-    })
 });
 
 nmcs.on('donePlay', (id, StreamPath, args) => {
     console.log('[NodeEvent on donePlay]', `id=${id} StreamPath=${StreamPath} args=${JSON.stringify(args)}`);
-    axios.get(`${conf.endpoint}play.php?live=${StreamPath}&authorization=${conf.APIKey}&mode=done_play`).then(response => {
-    }).catch(error => {
-        console.log('[donePlay]', error);
-    })
 });
