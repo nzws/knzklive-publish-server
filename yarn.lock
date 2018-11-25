@@ -284,8 +284,10 @@ negotiator@0.6.1:
 
 "node-media-server@git+https://github.com/yuzulabo/Node-Media-Server":
   version "1.4.3"
-  resolved "git+https://github.com/yuzulabo/Node-Media-Server#a77011884f917b590a78e6e9ef7fc4e68c9ca3b3"
+  uid "41b509f630b8ef7207a6964f0dcb03ebf0a50d55"
+  resolved "https://github.com/yuzulabo/Node-Media-Server#41b509f630b8ef7207a6964f0dcb03ebf0a50d55"
   dependencies:
+    axios "^0.18.0"
     basic-auth-connect "^1.0.0"
     chalk "^2.4.1"
     dateformat "^3.0.3"
