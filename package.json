@@ -12,5 +12,10 @@
   "dependencies": {
     "axios": "0.18.0",
     "node-media-server": "git+https://github.com/yuzulabo/Node-Media-Server"
+  },
+  "devDependencies": {
+    "husky": "1.3.1",
+    "prettier": "1.16.0",
+    "pretty-quick": "1.10.0"
   }
 }
