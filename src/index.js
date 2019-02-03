@@ -1,6 +1,6 @@
-import { NodeMediaServer } from 'node-media-server'
-import axios from 'axios'
-import conf from '../config'
+import { NodeMediaServer } from 'node-media-server';
+import axios from 'axios';
+import conf from '../config';
 
 const config = {
   rtmp: {
@@ -19,14 +19,14 @@ const config = {
     api_endpoint: conf.endpoint,
     api_key: conf.APIKey
   }
-}
+};
 
 if (conf.https_port) {
   config['https'] = {
     port: conf.https_port,
     cert: conf.https_cert,
     key: conf.https_key
-  }
+  };
 }
 
 if (conf.ffmpeg_path) {
@@ -40,24 +40,24 @@ if (conf.ffmpeg_path) {
         hlsFlags: '[hls_time=1:hls_list_size=2:hls_flags=delete_segments]'
       }
     ]
-  }
+  };
 }
 
-const nmcs = new NodeMediaServer(config)
-nmcs.run()
+const nmcs = new NodeMediaServer(config);
+nmcs.run();
 
 nmcs.on('prePublish', (id, StreamPath, args) => {
   console.log(
     '[NodeEvent on prePublish]',
     `id=${id} StreamPath=${StreamPath} args=${JSON.stringify(args)}`
-  )
-})
+  );
+});
 
 nmcs.on('donePublish', (id, StreamPath, args) => {
   console.log(
     '[NodeEvent on donePublish]',
     `id=${id} StreamPath=${StreamPath} args=${JSON.stringify(args)}`
-  )
+  );
   axios
     .get(
       `${config.knzklive.api_endpoint}publish.php?token=${
@@ -67,23 +67,23 @@ nmcs.on('donePublish', (id, StreamPath, args) => {
       }&mode=done_publish`
     )
     .then(response => {
-      console.log('[donePublish]', response)
+      console.log('[donePublish]', response);
     })
     .catch(error => {
-      console.log('[donePublish]', error)
-    })
-})
+      console.log('[donePublish]', error);
+    });
+});
 
 nmcs.on('postPlay', (id, StreamPath, args) => {
   console.log(
     '[NodeEvent on postPlay]',
     `id=${id} StreamPath=${StreamPath} args=${JSON.stringify(args)}`
-  )
-})
+  );
+});
 
 nmcs.on('donePlay', (id, StreamPath, args) => {
   console.log(
     '[NodeEvent on donePlay]',
     `id=${id} StreamPath=${StreamPath} args=${JSON.stringify(args)}`
-  )
-})
+  );
+});
