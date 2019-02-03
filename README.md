@@ -1,4 +1,4 @@
-# KnzkLive-Publish-Server
+# KnzkLive Publish Server
 
 このサーバーではNode-Media-Serverを用いて配信者側からのRTMP受信→視聴者側にflvで送信を行っています。
 
@@ -24,8 +24,8 @@ yum install -y yarn
 adduser knzklive
 useradd knzklive
 su - knzklive
-git clone https://github.com/KnzkDev/KnzkLive-Publish-Server
-cd KnzkLive-Publish-Server
+git clone https://github.com/KnzkDev/knzklive-publish-server
+cd knzklive-publish-server
 yarn install
 cp config.sample.js config.js
 vi config.js
@@ -40,7 +40,7 @@ After=syslog.target network.target
 [Service]
 Type=simple
 ExecStart=/usr/bin/yarn run start
-WorkingDirectory=/home/knzklive/KnzkLive-Publish-Server
+WorkingDirectory=/home/knzklive/knzklive-publish-server
 KillMode=process
 Restart=always
 User=root
