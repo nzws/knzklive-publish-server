@@ -1,5 +1,6 @@
 import { NodeMediaServer } from 'node-media-server';
 import axios from 'axios';
+// eslint-disable-next-line import/no-unresolved
 import conf from '../config';
 
 const config = {
@@ -22,7 +23,7 @@ const config = {
 };
 
 if (conf.https_port) {
-  config['https'] = {
+  config.https = {
     port: conf.https_port,
     cert: conf.https_cert,
     key: conf.https_key
@@ -30,7 +31,7 @@ if (conf.https_port) {
 }
 
 if (conf.ffmpeg_path) {
-  config['trans'] = {
+  config.trans = {
     ffmpeg: conf.ffmpeg_path,
     tasks: [
       {
@@ -47,6 +48,7 @@ const nmcs = new NodeMediaServer(config);
 nmcs.run();
 
 nmcs.on('prePublish', (id, StreamPath, args) => {
+  // eslint-disable-next-line no-console
   console.log(
     '[NodeEvent on prePublish]',
     `id=${id} StreamPath=${StreamPath} args=${JSON.stringify(args)}`
@@ -54,6 +56,7 @@ nmcs.on('prePublish', (id, StreamPath, args) => {
 });
 
 nmcs.on('donePublish', (id, StreamPath, args) => {
+  // eslint-disable-next-line no-console
   console.log(
     '[NodeEvent on donePublish]',
     `id=${id} StreamPath=${StreamPath} args=${JSON.stringify(args)}`
@@ -67,14 +70,17 @@ nmcs.on('donePublish', (id, StreamPath, args) => {
       }&mode=done_publish`
     )
     .then(response => {
+      // eslint-disable-next-line no-console
       console.log('[donePublish]', response);
     })
     .catch(error => {
+      // eslint-disable-next-line no-console
       console.log('[donePublish]', error);
     });
 });
 
 nmcs.on('postPlay', (id, StreamPath, args) => {
+  // eslint-disable-next-line no-console
   console.log(
     '[NodeEvent on postPlay]',
     `id=${id} StreamPath=${StreamPath} args=${JSON.stringify(args)}`
@@ -82,6 +88,7 @@ nmcs.on('postPlay', (id, StreamPath, args) => {
 });
 
 nmcs.on('donePlay', (id, StreamPath, args) => {
+  // eslint-disable-next-line no-console
   console.log(
     '[NodeEvent on donePlay]',
     `id=${id} StreamPath=${StreamPath} args=${JSON.stringify(args)}`
