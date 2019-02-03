@@ -1,15 +1,14 @@
 {
   "name": "knzklive-publish-server",
   "version": "1.0.0",
-  "main": "index.js",
+  "repository": "https://github.com/KnzkDev/knzklive-publish-server.git",
+  "author": "KnzkDev Team",
+  "license": "MPL-2.0",
+  "private": true,
   "scripts": {
     "build": "babel src -d dist",
     "start": "node dist/index.js"
   },
-  "repository": "https://github.com/yuzulabo/KnzkLive-Publish-Server.git",
-  "author": "nzws <github@nzws.me>",
-  "license": "MPL-2.0",
-  "private": true,
   "dependencies": {
     "axios": "0.18.0",
     "node-media-server": "git+https://github.com/yuzulabo/Node-Media-Server"
