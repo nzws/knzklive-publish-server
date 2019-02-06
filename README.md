@@ -1,12 +1,13 @@
-# KnzkLive-Publish-Server
+# KnzkLive Publish Server
 
-このサーバーではNode-Media-Serverを用いて配信者側からのRTMP受信→視聴者側にflvで送信を行っています。
+このサーバーでは Node-Media-Server を用いて配信者側からの RTMP 受信 → 視聴者側に flv で送信を行っています。
 
-また、RTMPの認証処理や接続イベントによる人数取得なども行っています。
+また、RTMP の認証処理や接続イベントによる人数取得なども行っています。
 
-(認証処理に関してはNode-Media-Serverを改造してKnzkLiveのAPIと無理やり噛み合わせています)
+(認証処理に関しては Node-Media-Server を改造して KnzkLive の API と無理やり噛み合わせています)
 
 ## インストールガイド(仮)
+
 割と適当
 
 ```
@@ -24,14 +25,15 @@ yum install -y yarn
 adduser knzklive
 useradd knzklive
 su - knzklive
-git clone https://github.com/KnzkDev/KnzkLive-Publish-Server
-cd KnzkLive-Publish-Server
+git clone https://github.com/KnzkDev/knzklive-publish-server
+cd knzklive-publish-server
 yarn install
 cp config.sample.js config.js
 vi config.js
 ```
 
 `vi /etc/systemd/system/knzklive.service`
+
 ```
 [Unit]
 Description=KnzkLive
@@ -40,7 +42,7 @@ After=syslog.target network.target
 [Service]
 Type=simple
 ExecStart=/usr/bin/yarn run start
-WorkingDirectory=/home/knzklive/KnzkLive-Publish-Server
+WorkingDirectory=/home/knzklive/knzklive-publish-server
 KillMode=process
 Restart=always
 User=root

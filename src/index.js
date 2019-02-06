@@ -1,7 +1,7 @@
-import { NodeMediaServer } from 'node-media-server'
-import axios from 'axios'
-import conf from '../config'
-const fs = require('fs')
+import { NodeMediaServer } from 'node-media-server';
+import axios from 'axios';
+// eslint-disable-next-line import/no-unresolved
+import conf from '../config';
 
 const config = {
   rtmp: {
@@ -20,14 +20,14 @@ const config = {
     api_endpoint: conf.endpoint,
     api_key: conf.APIKey
   }
-}
+};
 
 if (conf.https_port) {
-  config['https'] = {
+  config.https = {
     port: conf.https_port,
     cert: conf.https_cert,
     key: conf.https_key
-  }
+  };
 }
 
 if (conf.ffmpeg_path) {
@@ -38,43 +38,45 @@ if (conf.ffmpeg_path) {
       hls: true,
       hlsFlags: '[hls_time=1:hls_list_size=2:hls_flags=delete_segments]'
     }
-  ]
+  ];
 
   if (conf.enable_ts) {
     tasks.push({
       app: 'ts',
       mp4: true,
       mp4Flags: '[movflags=faststart]'
-    })
+    });
   }
 
   config['trans'] = {
     ffmpeg: conf.ffmpeg_path,
     tasks: tasks
-  }
+  };
 }
 
-const nmcs = new NodeMediaServer(config)
-nmcs.run()
+const nmcs = new NodeMediaServer(config);
+nmcs.run();
 
 nmcs.on('prePublish', (id, StreamPath, args) => {
+  // eslint-disable-next-line no-console
   console.log(
     '[NodeEvent on prePublish]',
     `id=${id} StreamPath=${StreamPath} args=${JSON.stringify(args)}`
-  )
-})
+  );
+});
 
 nmcs.on('donePublish', (id, StreamPath, args) => {
+  // eslint-disable-next-line no-console
   console.log(
     '[NodeEvent on donePublish]',
     `id=${id} StreamPath=${StreamPath} args=${JSON.stringify(args)}`
-  )
+  );
   const dir =
     config.http.mediaroot +
     '/ts/' +
     StreamPath.replace(/\/live\/(\d+)stream/g, '$1') +
-    'stream'
-  const file = getLastFile(dir)
+    'stream';
+  const file = getLastFile(dir);
   axios
     .get(
       `${config.knzklive.api_endpoint}publish.php?token=${
@@ -84,30 +86,34 @@ nmcs.on('donePublish', (id, StreamPath, args) => {
       }&mode=done_publish&ts_file=${file}`
     )
     .then(response => {
-      console.log('[donePublish]', response.data)
+      // eslint-disable-next-line no-console
+      console.log('[donePublish]', response);
     })
     .catch(error => {
-      console.log('[donePublish]', error)
-    })
-})
+      // eslint-disable-next-line no-console
+      console.log('[donePublish]', error);
+    });
+});
 
 nmcs.on('postPlay', (id, StreamPath, args) => {
+  // eslint-disable-next-line no-console
   console.log(
     '[NodeEvent on postPlay]',
     `id=${id} StreamPath=${StreamPath} args=${JSON.stringify(args)}`
-  )
-})
+  );
+});
 
 nmcs.on('donePlay', (id, StreamPath, args) => {
+  // eslint-disable-next-line no-console
   console.log(
     '[NodeEvent on donePlay]',
     `id=${id} StreamPath=${StreamPath} args=${JSON.stringify(args)}`
-  )
-})
+  );
+});
 
 function getLastFile(dir) {
-  const files = fs.readdirSync(dir)
-  return files[files.length - 1]
+  const files = fs.readdirSync(dir);
+  return files[files.length - 1];
 }
 
 /* 結合するのは諦めた
