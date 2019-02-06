@@ -7,3 +7,4 @@ exports.http_port = 8000
 // exports.https_cert = "/path/to/cert.pem";
 // exports.https_key = "/path/to/key.pem";
 // exports.ffmpeg_path = "/path/to/ffmpeg";
+exports.enable_ts = false
