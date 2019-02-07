@@ -81,7 +81,7 @@ nmcs.on('donePublish', (id, StreamPath, args) => {
     /\/live\/(\d+)stream/g,
     '$1'
   )}stream`;
-  const file = getLastFile(dir);
+  const file = conf.enable_ts ? getLastFile(dir) : 'none';
   axios
     .get(
       `${config.knzklive.api_endpoint}publish.php?token=${
