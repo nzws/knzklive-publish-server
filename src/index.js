@@ -1,7 +1,8 @@
-import { NodeMediaServer } from 'node-media-server';
-import axios from 'axios';
+const { NodeMediaServer } = require('node-media-server');
+const axios = require('axios');
+const fs = require('fs');
 // eslint-disable-next-line import/no-unresolved
-import conf from '../config';
+const conf = require('../config');
 
 const config = {
   rtmp: {
@@ -48,10 +49,15 @@ if (conf.ffmpeg_path) {
     });
   }
 
-  config['trans'] = {
+  config.trans = {
     ffmpeg: conf.ffmpeg_path,
-    tasks: tasks
+    tasks
   };
+}
+
+function getLastFile(dir) {
+  const files = fs.readdirSync(dir);
+  return files[files.length - 1];
 }
 
 const nmcs = new NodeMediaServer(config);
@@ -71,11 +77,10 @@ nmcs.on('donePublish', (id, StreamPath, args) => {
     '[NodeEvent on donePublish]',
     `id=${id} StreamPath=${StreamPath} args=${JSON.stringify(args)}`
   );
-  const dir =
-    config.http.mediaroot +
-    '/ts/' +
-    StreamPath.replace(/\/live\/(\d+)stream/g, '$1') +
-    'stream';
+  const dir = `${config.http.mediaroot}/ts/${StreamPath.replace(
+    /\/live\/(\d+)stream/g,
+    '$1'
+  )}stream`;
   const file = getLastFile(dir);
   axios
     .get(
@@ -110,11 +115,6 @@ nmcs.on('donePlay', (id, StreamPath, args) => {
     `id=${id} StreamPath=${StreamPath} args=${JSON.stringify(args)}`
   );
 });
-
-function getLastFile(dir) {
-  const files = fs.readdirSync(dir);
-  return files[files.length - 1];
-}
 
 /* 結合するのは諦めた
 function generateTS(id) {
