@@ -2535,8 +2535,9 @@ nice-try@^1.0.4:
   integrity sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ==
 
 "node-media-server@git+https://github.com/yuzulabo/Node-Media-Server":
-  version "1.4.3"
-  resolved "https://github.com/yuzulabo/Node-Media-Server#3322db3586e467ef89cab5198be50ec85697e564"
+  version "1.4.10"
+  uid "6de56e8940d179554c46512698cf9d41f1d95e29"
+  resolved "https://github.com/yuzulabo/Node-Media-Server#6de56e8940d179554c46512698cf9d41f1d95e29"
   dependencies:
     axios "^0.18.0"
     basic-auth-connect "^1.0.0"
