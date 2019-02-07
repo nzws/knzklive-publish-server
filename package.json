@@ -6,8 +6,7 @@
   "license": "MPL-2.0",
   "private": true,
   "scripts": {
-    "build": "babel src -d dist",
-    "start": "node dist/index.js",
+    "start": "node src/index.js",
     "lint": "eslint . --ext .js",
     "fmt": "prettier --write '**/*.js'"
   },
@@ -16,9 +15,6 @@
     "node-media-server": "git+https://github.com/yuzulabo/Node-Media-Server"
   },
   "devDependencies": {
-    "@babel/cli": "7.2.3",
-    "@babel/core": "7.2.2",
-    "@babel/preset-env": "7.3.1",
     "eslint": "5.13.0",
     "eslint-config-airbnb-base": "13.1.0",
     "eslint-config-prettier": "4.0.0",
