@@ -7,11 +7,8 @@
 [![PRs Welcome](https://badgen.net/badge/PRs/welcome/green)](http://makeapullrequest.com)
 [![MIT License](https://badgen.net/badge/license/MIT/blue)](LICENSE)
 
-このサーバーでは Node-Media-Server を用いて配信者側からの RTMP 受信 → 視聴者側に flv で送信を行っています。
-
-また、RTMP の認証処理や接続イベントによる人数取得なども行っています。
-
-(認証処理に関しては Node-Media-Server を改造して KnzkLive の API と無理やり噛み合わせています)
+This server utilizes Node-Media-Server to receive RTMP from the streamer's side, handles the sending of FLV to the viewers, RTMP authentication, and counts the number of connection event.
+(For the authentication process, we modified the Node-Media-Server and forcibly meshed for the KnzkLive API together.)
 
 ## Installation guide
 
