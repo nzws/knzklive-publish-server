@@ -1,10 +1,10 @@
 # KnzkLive Publish Server
 
-[![PRs Welcome](https://badgen.net/badge/PRs/welcome/green)](http://makeapullrequest.com)
+[![CircleCI](https://circleci.com/gh/KnzkDev/knzklive-publish-server.svg?style=svg)](https://circleci.com/gh/KnzkDev/knzklive-publish-server)
 [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=KnzkDev/knzklive-publish-server)](https://dependabot.com)
-[![CircleCI](https://badgen.net/circleci/github/KnzkDev/knzklive-publish-server?icon=circleci)](https://circleci.com/gh/KnzkDev/knzklive-publish-server)
 [![eslint: airbnb](https://badgen.net/badge/eslint/airbnb/red?icon=airbnb)](https://github.com/airbnb/javascript)
 [![code style: prettier](https://badgen.net/badge/code%20style/prettier/pink)](https://github.com/prettier/prettier)
+[![PRs Welcome](https://badgen.net/badge/PRs/welcome/green)](http://makeapullrequest.com)
 [![MIT License](https://badgen.net/badge/license/MIT/blue)](LICENSE)
 
 このサーバーでは Node-Media-Server を用いて配信者側からの RTMP 受信 → 視聴者側に flv で送信を行っています。
