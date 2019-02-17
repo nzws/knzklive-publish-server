@@ -8,7 +8,8 @@
   "scripts": {
     "start": "node src/index.js",
     "lint": "eslint . --ext .js",
-    "fmt": "prettier --write '**/*.js'"
+    "fmt": "prettier --write '**/*.js'",
+    "check:fmt": "prettier --check '**/*.js'"
   },
   "dependencies": {
     "axios": "0.18.0",
