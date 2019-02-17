@@ -60,10 +60,10 @@ function getLastFile(dir) {
   return files[files.length - 1];
 }
 
-const nmcs = new NodeMediaServer(config);
-nmcs.run();
+const nms = new NodeMediaServer(config);
+nms.run();
 
-nmcs.on('prePublish', (id, StreamPath, args) => {
+nms.on('prePublish', (id, StreamPath, args) => {
   // eslint-disable-next-line no-console
   console.log(
     '[NodeEvent on prePublish]',
@@ -71,7 +71,7 @@ nmcs.on('prePublish', (id, StreamPath, args) => {
   );
 });
 
-nmcs.on('donePublish', (id, StreamPath, args) => {
+nms.on('donePublish', (id, StreamPath, args) => {
   // eslint-disable-next-line no-console
   console.log(
     '[NodeEvent on donePublish]',
@@ -100,7 +100,7 @@ nmcs.on('donePublish', (id, StreamPath, args) => {
     });
 });
 
-nmcs.on('postPlay', (id, StreamPath, args) => {
+nms.on('postPlay', (id, StreamPath, args) => {
   // eslint-disable-next-line no-console
   console.log(
     '[NodeEvent on postPlay]',
@@ -108,7 +108,7 @@ nmcs.on('postPlay', (id, StreamPath, args) => {
   );
 });
 
-nmcs.on('donePlay', (id, StreamPath, args) => {
+nms.on('donePlay', (id, StreamPath, args) => {
   // eslint-disable-next-line no-console
   console.log(
     '[NodeEvent on donePlay]',
