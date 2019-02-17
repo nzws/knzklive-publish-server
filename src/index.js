@@ -115,24 +115,3 @@ nmcs.on('donePlay', (id, StreamPath, args) => {
     `id=${id} StreamPath=${StreamPath} args=${JSON.stringify(args)}`
   );
 });
-
-/* 結合するのは諦めた
-function generateTS(id) {
-  const path = config.http.mediaroot + '/ts/' + id + 'stream';
-  const paths = getFiles(path);
-  if (!paths[1]) return paths[0];
-  const pathsStr = paths.join('|');
-  const file = path + '/' + Date.now() + '.mp4';
-  let argv = ['-i', 'concat:' + pathsStr, '-c', 'copy', file];
-  const ffmpeg_exec = spawn(config.trans.ffmpeg, argv);
-  console.log(argv);
-  ffmpeg_exec.on('error', (e) => {
-    console.error(e);
-  });
-
-  ffmpeg_exec.on('close', (code) => {
-    console.log('[merged] ' + id, code);
-    return file;
-  });
-}
-*/
