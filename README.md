@@ -13,11 +13,9 @@
 
 (認証処理に関しては Node-Media-Server を改造して KnzkLive の API と無理やり噛み合わせています)
 
-## インストールガイド(仮)
+## Installation guide
 
-割と適当
-
-```
+```bash
 sudo su -
 yum install -y gcc-c++ make
 curl -sL https://rpm.nodesource.com/setup_8.x | sudo bash -
@@ -32,14 +30,13 @@ yum install -y yarn
 adduser knzklive
 useradd knzklive
 su - knzklive
-git clone https://github.com/KnzkDev/knzklive-publish-server
-cd knzklive-publish-server
+git clone https://github.com/KnzkDev/knzklive-publish-server && cd knzklive-publish-server
 yarn install
 cp config.sample.js config.js
-vi config.js
+nano config.js
 ```
 
-`vi /etc/systemd/system/knzklive.service`
+`nano /etc/systemd/system/knzklive.service`
 
 ```
 [Unit]
