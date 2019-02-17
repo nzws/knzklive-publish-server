@@ -1,10 +1,12 @@
-exports.endpoint = 'https://live.knzk.me/api/pubsv/';
-exports.APIKey = 'xxxxx';
-
-exports.http_port = 8000;
-
-// exports.https_port = 8443;
-// exports.https_cert = "/path/to/cert.pem";
-// exports.https_key = "/path/to/key.pem";
-// exports.ffmpeg_path = "/path/to/ffmpeg";
-exports.enable_ts = false;
+module.exports = {
+  endpoint: 'https://live.knzk.me/api/pubsv/',
+  APIKey: 'xxxxx',
+  http_port: 8000,
+  /*
+  https_port: 8443,
+  https_cert: '/path/to/cert.pem',
+  https_key: '/path/to/key.pem',
+  ffmpeg_path: '/path/to/ffmpeg',
+  */
+  enable_ts: false
+};
