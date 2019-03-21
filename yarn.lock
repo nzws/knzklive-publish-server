@@ -1885,7 +1885,8 @@ nice-try@^1.0.4:
 
 "node-media-server@git+https://github.com/yuzulabo/Node-Media-Server":
   version "1.4.10"
-  resolved "https://github.com/yuzulabo/Node-Media-Server#58068d074e9511975a6ce30c286e33d4c3f12e40"
+  uid cab547951be39df1e6cc3b82fb560756e7879d45
+  resolved "git+https://github.com/yuzulabo/Node-Media-Server#cab547951be39df1e6cc3b82fb560756e7879d45"
   dependencies:
     axios "^0.18.0"
     basic-auth-connect "^1.0.0"
