@@ -1,9 +1,4 @@
 {
-  "name": "knzklive-publish-server",
-  "version": "1.0.0",
-  "repository": "https://github.com/KnzkDev/knzklive-publish-server.git",
-  "author": "KnzkDev Team",
-  "license": "MPL-2.0",
   "private": true,
   "scripts": {
     "start": "node src/index.js",
